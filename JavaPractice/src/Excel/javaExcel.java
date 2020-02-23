@@ -19,7 +19,6 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 
-
 /**
  * 九九の表をエクセルファイルに出力
  * @author s-tsuchida
@@ -41,7 +40,7 @@ public class javaExcel {
         String outPutFileName = null;
 
         String path = new File(".").getAbsoluteFile().getParent();
-        System.out.println(path);
+
         // エクセルファイルの作成
         try {
 
@@ -140,7 +139,7 @@ public class javaExcel {
 
                 // 現在の日付を取得
                 Date date = new Date();
-                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMdd");
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddssss");
 
                 //ファイルパス・ファイル名の指定
                 outPutFilePath = path + "\\excel\\";

@@ -3,7 +3,6 @@ package Java;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-
 public class JavaPractice {
 
 	public static void main(String[] args) {
