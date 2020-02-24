@@ -1,11 +1,14 @@
-package pdf;
-
+package model;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 
 import org.apache.poi.ss.usermodel.BorderStyle;
 import org.apache.poi.ss.usermodel.FillPatternType;
@@ -18,15 +21,9 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+public class ExcelJava {
 
-/**
- * 九九の表をエクセルファイルに出力
- * @author s-tsuchida
- *
- */
-public class Pdfjava {
-
-    public static void main(String[] args) {
+    public static void excelJava() throws SecurityException, IOException {
 
         // ワークブック
         XSSFWorkbook workBook = null;
@@ -40,6 +37,15 @@ public class Pdfjava {
         String outPutFileName = null;
 
         String path = new File(".").getAbsoluteFile().getParent();
+        //ログ出力確認
+    	StackTraceElement[] stackTrace = new Exception().getStackTrace();
+    	StackTraceElement info = stackTrace[stackTrace.length - 1];
+        Logger logger = Logger.getLogger(LoggerJava.class.getName());
+        String PathLog = path + "\\File\\Log\\" + "Sample.log";
+        FileHandler fHandler = new FileHandler(PathLog, true);
+        fHandler.setFormatter(new SimpleFormatter());
+        logger.addHandler(fHandler);
+        logger.log(Level.INFO, "例外のスローを捕捉だよーーん"+ " LINE: " + info.getLineNumber());
 
         // エクセルファイルの作成
         try {
@@ -142,7 +148,7 @@ public class Pdfjava {
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddssss");
 
                 //ファイルパス・ファイル名の指定
-                outPutFilePath = path + "\\excel\\";
+                outPutFilePath = path + "\\File\\excel\\";
                 outPutFileName = "kuku_" + dateFormat.format(date).toString() +  ".xlsx";
 
                 // エクセルファイルを出力
@@ -158,7 +164,7 @@ public class Pdfjava {
         }catch(Exception e) {
             System.out.println(e.toString());
         }
-
+        return;
     }
 
 }

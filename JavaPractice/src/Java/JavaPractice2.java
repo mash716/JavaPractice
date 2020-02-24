@@ -1,4 +1,4 @@
-package pdf;
+package Java;
 
 
 import java.io.File;
@@ -24,7 +24,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
  * @author s-tsuchida
  *
  */
-public class Pdfjava {
+public class JavaPractice2 {
 
     public static void main(String[] args) {
 
@@ -40,6 +40,7 @@ public class Pdfjava {
         String outPutFileName = null;
 
         String path = new File(".").getAbsoluteFile().getParent();
+
 
         // エクセルファイルの作成
         try {
