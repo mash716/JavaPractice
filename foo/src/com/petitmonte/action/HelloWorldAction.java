@@ -39,7 +39,7 @@ public class HelloWorldAction extends Action {
             //取得結果をリストへ
             List records = new ArrayList<List>();
             List columns = new ArrayList<Object>();
-            for (int i = 1; i <= 5; i++) {
+            for (int i = 1; i <= 6; i++) {
                 columns.add(rsmd.getColumnName(i));
             }
             records.add(columns);
