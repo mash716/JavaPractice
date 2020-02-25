@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="Shift_JIS"?>
+<!DOCTYPE struts-config PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+"http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+
+    <!-- (1)アクション・フォームBeanの指定 -->
+    <form-beans>
+        <form-bean
+                name="AuthenticationForm"
+                type="struts.AuthenticationForm"/>
+    </form-beans>
+
+    <!-- (2)JSPからの遷移先指定 -->
+    <global-forwards>
+        <forward name="fail" path="/login.jsp"/>
+    </global-forwards>
+
+    <!-- (3)アクション・クラスの振る舞いを指定 -->
+    <action-mappings>
+        <action path="/authentication"
+                    type="struts.AuthenticationAction"
+                    name="AuthenticationForm"
+                    scope="session">
+            <forward name="success" path="/welcome.jsp"/>
+            <forward name="fail" path="/login.jsp"/>
+        </action>
+    </action-mappings>
+
+    <!-- (4)メッセージ・リソース・ファイルの指定 -->
+    <message-resources parameter="resources.application"/>
+
+</struts-config>
